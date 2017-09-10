@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+		<ul>
+		<% data.forEach(function(file){%>
+			<li>账户：<%= file.name%> 密码：  <%= file.pwd%>
+				<button class="delete" data-id="<%= file.id%>" data-name="<%= file.name%>">删除</button>
+				<input type="button" class="updata" data-name="<%= file.name%>"  data-pwd="<%= file.pwd%>" value="提交" data-id="<%= file.id%>"/>
+				 
+			</li>
+		<%})%>
+		<p>姓名：<input type="text" id="name" /> 密码：<input type="text" id="pwd" /> <button id="add">添加</button><button id="sure">修改</button></p>
+		<button id="limit">分页</button>
+	</ul>
+</body>
+</html>

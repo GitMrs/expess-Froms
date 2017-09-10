@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<form action="http://localhost:8888/logined">
+		请输入账户：<input type="text" name="username" id="name"><br>
+		请输入密码：<input type="password" name="pwd" id="pwd"><br>
+		<input type="button" value="登录" id="btn">
+	</form>
+	<script src="jquery.js"></script>
+	<script>
+		$("#btn").on("click",()=>{
+			const name = $("#name").val(),
+				  pwd = $("#pwd").val()
+			$.ajax({
+				url:"/logined",
+				type:"post",
+				data:{name:name,pwd:pwd},
+				success:function(msg){
+					if(msg.code==1){
+						location.href="/infomation"
+					}else{
+						location.href="/resigter"
+					}
+				}
+			})
+		})
+	</script>
+</body>
+</html>
